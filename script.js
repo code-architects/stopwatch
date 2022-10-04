@@ -23,12 +23,14 @@ function calltimer() {
 	t = setTimeout(addtime, 1000);
 }
 function laptimer() {
-	let newlap = document.createElement("p");
-	lap.appendChild(newlap);
-	newlap.innerHTML =
-		(hours ? (hours <= 9 ? "0" + hours : hours) : "00") + " : " +
-		(minutes ? (minutes <= 9 ? "0" + minutes : minutes) : "00") + " : " +
-		(seconds ? (seconds <= 9 ? "0" + seconds : seconds) : "00")
+	if (seconds > 0) {
+		let newlap = document.createElement("p");
+		lap.appendChild(newlap);
+		newlap.innerHTML =
+			(hours ? (hours <= 9 ? "0" + hours : hours) : "00") + " : " +
+			(minutes ? (minutes <= 9 ? "0" + minutes : minutes) : "00") + " : " +
+			(seconds ? (seconds <= 9 ? "0" + seconds : seconds) : "00")
+	}
 }
 function stoptimer() {
 	clearTimeout(t);
